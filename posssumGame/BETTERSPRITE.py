@@ -11,13 +11,33 @@ gameover = False #variable to run our game loop
 global ground
 ground = Vector2(0,700)
 
+
+map = [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ,0 ,0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ,0 ,0, 0, 0, 0, 0, 0, 0, 0 ,0 ,0, 0, 0],
+       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ,0 ,0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ,0 ,0, 0, 0, 0, 0, 0, 0, 0 ,0 ,0, 0, 0],
+       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ,0 ,0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ,0 ,0, 0, 0, 0, 0, 0, 0, 0 ,0 ,0, 0, 0],
+       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ,0 ,0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ,0 ,0, 0, 0, 0, 0, 0, 0, 0 ,0 ,0, 0, 0],
+       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ,0 ,0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ,0 ,0, 0, 0, 0, 0, 0, 0, 0 ,0 ,0, 0, 0],
+       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ,0 ,0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ,0 ,0, 0, 0, 0, 0, 0, 0, 0 ,0 ,0, 0, 0],
+       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ,0 ,0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ,0 ,0, 0, 0, 0, 0, 0, 0, 0 ,0 ,0, 0, 0],
+       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ,0 ,0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ,0 ,0, 0, 0, 0, 0, 0, 0, 0 ,0 ,0, 0, 0],
+       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ,0 ,0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0 ,0 ,0, 0, 0, 0, 0, 0, 0, 0 ,0 ,0, 0, 0],
+       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ,0 ,0, 0, 0, 0, 0, 0, 2, 2, 0, 0, 0, 0, 0, 0, 0 ,0 ,0, 0, 0, 0, 0, 0, 0, 0 ,0 ,0, 0, 0],
+       [0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 3, 0 ,0 ,0, 0, 0, 0, 0, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0 ,0 ,0, 0, 0, 0, 0, 0, 0, 0 ,0 ,0, 0, 0],
+       [0, 0, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0 ,0 ,0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ,0 ,0, 0, 0, 0, 0, 0, 0, 0 ,0 ,0, 0, 0],
+       [0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0 ,0 ,2, 2, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0 ,0 ,0, 0, 0, 0, 0, 0, 0, 0 ,0 ,0, 0, 0],
+       [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ,0 ,0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 2 ,2 ,2, 0, 0, 0, 0, 0, 0, 0 ,0 ,0, 0, 0],
+       [1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2 ,2 ,0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 0, 0, 0 ,2 ,0, 0, 0, 0, 0, 0, 0, 0 ,0 ,0, 0, 0],
+       [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ,1 ,1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ,1 ,1, 1, 1, 1, 1, 1, 1, 1 ,1 ,1, 1, 1]]
+
+dirt = pygame.image.load("C:/Users/768588/Downloads/grass.jpg") #load your spritesheet
+
 class Possum:
 
 	def __init__(self):
-		self.possum1 = pygame.image.load('possumsprite7.png')
+		self.possum1 = pygame.image.load("C:/Users/768588/Downloads/possumsprite7.png")
 		self.possum = pygame.transform.smoothscale_by(self.possum1,0.8)
 		 #load your spritesheet
-		self.chirp = pygame.mixer.Sound("chrip.mp3")
+		self.chirp = pygame.mixer.Sound("C:/Users/768588/Downloads/posssumGame_chrip.mp3")
 
 
 		self.pos = Vector2(0,0)
@@ -28,6 +48,10 @@ class Possum:
 		self.direction = 1
 		self.frameNum = 0
 		self.RowNum = 1
+		self.offset = 0
+		self.offset2 = 0
+		self.frameWidth = 32
+		self.frameHeight = 48
 
 		self.chirping = False
 		self.charge = 0
@@ -174,11 +198,13 @@ class Possum:
 			pygame.mixer.Sound.stop(self.chirp)
 
 	def collision(self, objPos:Vector2):
+		if (map[int((self.pos.y+self.frameHeight-10)/50)][int((self.pos.x-self.offset+self.frameWidth+5)/50)]==1 or map[int((self.pos.y)/50)][int((self.pos.x-self.offset+self.frameWidth+5)/50)]==1 or map[int((self.pos.y+self.frameHeight-10)/50)][int((self.pos.x-offset+frameWidth+5)/50)]==2 or map[int((self.pos.y)/50)][int((self.pos.x-self.offset+self.frameWidth+5)/50)]==2 or map[int((self.pos.y+self.frameHeight-10)/50)][int((self.pos.x-self.offset+self.frameWidth+5)/50)]==3 or map[int((self.pos.y)/50)][int((self.pos.x-self.offset+self.frameWidth+5)/50)]==3):
+        	self.pos.x-=3   
 		if self.hitbox.bottom >= objPos.y:
 			self.isOnGround = True
 		else:
 			self.isOnGround = False
-
+		 
 	def update(self,type):
 		if type == 0:
 			print(self.vel.x)
@@ -225,6 +251,7 @@ class Possum:
 					self.frameNum+=1
 			if self.frameNum >= 4:
 				self.frameNum = 0
+			
 		# SPRINT ---------------------------------------------------------------
 		if self.whatdoing == "sprint": 
 			if self.direction == 1: #left
@@ -356,10 +383,14 @@ while not gameover:
 	
 
 	screen.fill((200,210,200))
+	
 	character.draw()
 	pygame.draw.line(screen, (180,190,180),(0,ground.y),(800,ground.y),1)
 	pygame.display.flip()
-
+	for i in range (16):
+		for j in range(42):
+			if map[i][j]==1:
+				screen.blit(dirt, (j*50+character.offset+character.offset2, i*50), (0, 0, 50, 50))
 pygame.quit()
 
 	
