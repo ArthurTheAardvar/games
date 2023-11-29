@@ -198,8 +198,6 @@ class Possum:
 			pygame.mixer.Sound.stop(self.chirp)
 
 	def collision(self, objPos:Vector2):
-		if (map[int((self.pos.y+self.frameHeight-10)/50)][int((self.pos.x-self.offset+self.frameWidth+5)/50)]==1 or map[int((self.pos.y)/50)][int((self.pos.x-self.offset+self.frameWidth+5)/50)]==1 or map[int((self.pos.y+self.frameHeight-10)/50)][int((self.pos.x-offset+frameWidth+5)/50)]==2 or map[int((self.pos.y)/50)][int((self.pos.x-self.offset+self.frameWidth+5)/50)]==2 or map[int((self.pos.y+self.frameHeight-10)/50)][int((self.pos.x-self.offset+self.frameWidth+5)/50)]==3 or map[int((self.pos.y)/50)][int((self.pos.x-self.offset+self.frameWidth+5)/50)]==3):
-        	self.pos.x-=3   
 		if self.hitbox.bottom >= objPos.y:
 			self.isOnGround = True
 		else:
@@ -242,8 +240,22 @@ class Possum:
 		if self.whatdoing == "walk":
 			if self.direction == 1: #left
 				self.RowNum = 1
+				if self.pos.x > 400:
+					self.vel.x = -3
+				elif self.offset<0:
+					self.offset+=3
+					self.vel.x =0
+				else:
+					self.vel.x = -3
 			if self.direction == 0:
 				self.RowNum = 0
+				if self.pos.x<400:
+					self.vel.x=3
+				elif self.offset>-1250:
+					self.offset-=3
+					self.vel.x = 0
+				else:
+					self.vel.x = 3
 
 			self.ticker+=1
 			if self.ticker%15==0:
@@ -382,7 +394,7 @@ while not gameover:
 	character.update(1)
 	
 
-	screen.fill((200,210,200))
+	screen.fill((0,0,0))
 	
 	character.draw()
 	pygame.draw.line(screen, (180,190,180),(0,ground.y),(800,ground.y),1)
